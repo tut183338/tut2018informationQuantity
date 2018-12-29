@@ -79,7 +79,7 @@ public class TestCase {
 		}
     	
     	try{
-    		System.out.println("setTargetが未定義の場合");
+    		System.out.println("setTargetが未定義の場合"); 
     		FrequencerInterface  myObject;
 		    int freq, subFreq;
 		    System.out.println("checking s4.B183338.Frequencer");
