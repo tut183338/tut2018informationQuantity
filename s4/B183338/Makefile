@@ -1,4 +1,4 @@
-all:
+all: 
 	javac -encoding utf-8 Hello.java -classpath "../.."
 	javac -encoding utf-8 Frequencer.java -classpath "../.."
 	javac -encoding utf-8 InformationEstimator.java -classpath "../.."
