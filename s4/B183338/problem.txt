@@ -1,0 +1,2 @@
+・frequency内でspaceLength、targetLengthが0の状態でループに使用される可能性がある
+・subByteFrequencyの関数内部が定義されていない
