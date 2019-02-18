@@ -69,10 +69,8 @@ public class Frequencer implements FrequencerInterface{
 		else if(mySpace[i] == mySpace[j]){
 			i++;
 			j++;
-			continue;
+			//continue;
 		}
-		else{
-		}		
 		//return 1; // This line should be modified.
 	}
 	if(i > j){
@@ -80,11 +78,6 @@ public class Frequencer implements FrequencerInterface{
 	}
 	else if(i < j){
 		return 1;
-	}
-	else if(i == j){
-		return 0;
-	}
-	else{
 	}
 	return 0;
 	}
@@ -104,6 +97,8 @@ public class Frequencer implements FrequencerInterface{
 		//
 		// ****	 Please write code here... ***
 		//
+		quickSort(suffixArray, 0, suffixArray.length-1);
+		/*
 		for (int i = 0; i < suffixArray.length - 1; i++) {
 			for (int j = suffixArray.length - 1; j > i; j--) {
 				int tmpNum = suffixArray[j-1];
@@ -114,6 +109,39 @@ public class Frequencer implements FrequencerInterface{
 					suffixArray[j] = tmpNum;
 				}
 			}
+		}
+		*/
+	}
+	
+	public void quickSort(int[] array, int left, int right){
+		int curleft = left;
+		int curright = right;
+		int pivot = left + (right - left) / 2;
+		int tmpNum;
+		
+		while(curleft <= curright){
+			while(suffixCompare(array[curleft], array[pivot]) == -1){
+				curleft++;
+				//System.out.println("curleft:" + curleft);
+			}
+			while(suffixCompare(array[curright], array[pivot]) == 1){
+				curright--;
+				//System.out.println("curright:" + curright);
+			}
+			if(curleft <= curright){
+				tmpNum = array[curleft];
+				array[curleft] = array[curright];
+				array[curright] = tmpNum;
+				curleft++;
+				curright--;
+				//System.out.println("curleft&right:" + curleft + ", " + curright);
+			}
+		}
+		if(left < curright){
+			quickSort(array, left, curright);
+		}
+		if(curleft < right){
+			quickSort(array, curleft, right);
 		}
 	}
 
